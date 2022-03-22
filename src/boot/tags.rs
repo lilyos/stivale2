@@ -436,7 +436,7 @@ pub mod structures {
     }
 
     /// Information on the multiprocessor environment
-    #[repr(C, packed)]
+    #[repr(C)]
     #[form_tag_unsized(0xee80847d01506c57)]
     pub struct SMPStructure {
         /// Bit 0 is set if x2APIC was requested and it was supported and enabled
@@ -456,7 +456,7 @@ pub mod structures {
     }
 
     #[repr(C, packed)]
-    #[derive(Debug)]
+    #[derive(Debug, Clone, Copy)]
     pub struct SMPInfo {
         /// ACPI processor UID
         pub processor_id: u32,
